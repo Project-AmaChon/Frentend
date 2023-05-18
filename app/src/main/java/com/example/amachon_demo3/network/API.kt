@@ -7,6 +7,9 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 interface API {
+    @POST("/login")
+    fun login(@Body loginDto: LoginDto) : Call<LoginResponseDto>
+
     @GET("/tags")
     fun getTags() : Call<TokenDto>
 
@@ -20,7 +23,7 @@ interface API {
     fun nickNameCheck(@Body nicknameDto: NicknameDto) : Call<Void>
 
     @POST("/join")
-    fun join(@Body joinData: JoinData) : Call<LoginDto>
+    fun join(@Body joinData: JoinData) : Call<JoinResponseDto>
 
     @POST("/change-tags")
     fun change(@Body changeDto: changeDto) : Call<Void>

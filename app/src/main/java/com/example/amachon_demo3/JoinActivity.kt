@@ -30,40 +30,12 @@ class JoinActivity : AppCompatActivity() {
             Client.retrofitService.logUp(EmailDto(email)).enqueue(
                 object : Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                        Log.d("emailsend", response.message().toString())
-                        when (response!!.code()) {
-                            200 -> {
-                                Toast.makeText(this@JoinActivity, "200", Toast.LENGTH_LONG).show()
-                            }
-                            400 -> {
-                                Toast.makeText(this@JoinActivity, "400", Toast.LENGTH_LONG).show()
-                            }
-                            500 -> {
-                                Toast.makeText(this@JoinActivity, "500", Toast.LENGTH_LONG).show()
-                            }
-                        }
                     }
 
                     override fun onFailure(call: Call<Void>, t: Throwable) {
                     }
                 }
             )
-
-
-            /*
-            Client.retrofitService.getTags()?.enqueue(object : Callback<TokenDto>{
-                override fun onResponse(call: Call<TokenDto>, response: Response<TokenDto>) {
-                    if (response.isSuccessful){
-                        Log.d("tlqkf3", response.body()?.result?.get(0)?.children.toString())
-                    }else{
-
-                    }
-                }
-
-                override fun onFailure(call: Call<TokenDto>, t: Throwable) {
-                }
-            })
-             */
         }
 
         val emailCodeCheckBtn = findViewById<Button>(R.id.EmailCodeCheckBtn)
@@ -73,19 +45,6 @@ class JoinActivity : AppCompatActivity() {
             Client.retrofitService.codeCheck(EmailCheckDto(email, emailCode)).enqueue(
                 object : Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                        Log.d("emailcodecheck", response.message().toString())
-                        when (response!!.code()) {
-                            200 -> {
-                                Toast.makeText(this@JoinActivity, "200", Toast.LENGTH_LONG).show()
-                                emailCheck = true
-                            }
-                            400 -> {
-                                Toast.makeText(this@JoinActivity, "400", Toast.LENGTH_LONG).show()
-                            }
-                            500 -> {
-                                Toast.makeText(this@JoinActivity, "500", Toast.LENGTH_LONG).show()
-                            }
-                        }
                     }
 
                     override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -101,19 +60,6 @@ class JoinActivity : AppCompatActivity() {
             Client.retrofitService.nickNameCheck(NicknameDto(nickname)).enqueue(
                 object : Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                        Log.d("nicknamecheck", response.toString())
-                        when (response!!.code()) {
-                            200 -> {
-                                Toast.makeText(this@JoinActivity, "200", Toast.LENGTH_LONG).show()
-                                nicknameCheck = true
-                            }
-                            400 -> {
-                                Toast.makeText(this@JoinActivity, "400", Toast.LENGTH_LONG).show()
-                            }
-                            500 -> {
-                                Toast.makeText(this@JoinActivity, "500", Toast.LENGTH_LONG).show()
-                            }
-                        }
                     }
 
                     override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -132,28 +78,16 @@ class JoinActivity : AppCompatActivity() {
                 val email = findViewById<EditText>(R.id.EmailAddress).text.toString()
 
                 Client.retrofitService.join(JoinData(email,password,nickName)).enqueue(
-                    object : Callback<LoginDto> {
-                        override fun onResponse(call: Call<LoginDto>, response: Response<LoginDto>) {
+                    object : Callback<JoinResponseDto> {
+                        override fun onResponse(call: Call<JoinResponseDto>, response: Response<JoinResponseDto>) {
                             Client.value = response.body()?.result?.accessToken.toString()
-                            when (response!!.code()) {
-                                200 -> {
-                                    Toast.makeText(this@JoinActivity, "200", Toast.LENGTH_LONG).show()
-                                }
-                                400 -> {
-                                    Toast.makeText(this@JoinActivity, "400", Toast.LENGTH_LONG).show()
-                                }
-                                500 -> {
-                                    Toast.makeText(this@JoinActivity, "500", Toast.LENGTH_LONG).show()
-                                }
-                            }
                         }
 
-                        override fun onFailure(call: Call<LoginDto>, t: Throwable) {
+                        override fun onFailure(call: Call<JoinResponseDto>, t: Throwable) {
                         }
 
                     }
                 )
-
                 startActivity(Intent(this, JoinTagSetActivity::class.java))
             }
             else {
