@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         tools:context=".fragments.project.ProjectFragment">
 
+        <!---->
         <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
@@ -20,7 +21,6 @@
             android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent" />
-
         <LinearLayout
             android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
@@ -30,7 +30,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             android:orientation="horizontal" />
 
-
+        <!-- 키워드 검색 레이아웃 -->
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
