@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface API {
     @POST("/login")
@@ -39,4 +40,12 @@ interface API {
 
     @POST("/project")
     fun createProject(@Body projectCreateDto: ProjectCreateDto) : Call<RespawnDto>
+
+    @POST("/project/{projectId}/apply")
+    fun projectApply(@Path("projectId") projectId: Int) : Call<BaseDto>
+
+    @GET("/project/{projectId}")
+    fun getProject(@Path("projectId") projectId : Int) : Call<ProjectDetailDto>
+
+    //@GET("/project/{projectId}/recommend-teamMember")
 }

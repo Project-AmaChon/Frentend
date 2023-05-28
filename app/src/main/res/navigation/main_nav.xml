@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_projectFragment"
             app:destination="@id/projectFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_projectPageFragment"
+            app:destination="@id/projectPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/myPageFragment"
@@ -125,4 +128,8 @@
             android:id="@+id/action_techTagFragment_to_tagPlusFragment"
             app:destination="@id/tagPlusFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/projectPageFragment"
+        android:name="com.example.amachon_demo3.fragments.project.ProjectPageFragment"
+        android:label="ProjectPageFragment" />
 </navigation>
