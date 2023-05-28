@@ -119,7 +119,9 @@ class ProjectPageFragment : Fragment() {
                 techRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
                 val MemberRv = binding.memberRV
-                val memberrvAdapter = ProjectTeamMemberRV(response.body()!!.result.teamMembers)
+                val memberrvAdapter = ProjectTeamMemberRV(response.body()!!.result.teamMembers,
+                    response.body()?.result?.leaderId!!
+                )
 
                 MemberRv.adapter = memberrvAdapter
                 MemberRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)

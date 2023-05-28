@@ -3,12 +3,18 @@ package com.example.amachon_demo3.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.amachon_demo3.R
+import com.example.amachon_demo3.data.BaseDto
 import com.example.amachon_demo3.data.TeamMemberDto
+import com.example.amachon_demo3.network.Client
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class ProjectTeamMemberRV (val items : MutableList<TeamMemberDto>) : RecyclerView.Adapter<ProjectTeamMemberRV.ViewHolder>(){
+class ProjectTeamMemberRV (val items : MutableList<TeamMemberDto>, val projectleaderId : Int) : RecyclerView.Adapter<ProjectTeamMemberRV.ViewHolder>(){
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -30,6 +36,24 @@ class ProjectTeamMemberRV (val items : MutableList<TeamMemberDto>) : RecyclerVie
         fun bindItems(item : TeamMemberDto) {
             val hi = itemView.findViewById<TextView>(R.id.techrv)
             hi.text = item.name
+
+            if (projectleaderId == Client.memberId) {
+                val cancelbtn = itemView.findViewById<ImageView>(R.id.cancel)
+                cancelbtn.visibility = View.VISIBLE
+
+                cancelbtn.setOnClickListener {
+                    Client.retrofitService.kickMember(projectleaderId, item.memberId).enqueue(object : Callback<BaseDto>{
+                        override fun onResponse(call: Call<BaseDto>, response: Response<BaseDto>) {
+
+                        }
+
+                        override fun onFailure(call: Call<BaseDto>, t: Throwable) {
+
+                        }
+
+                    })
+                }
+            }
         }
     }
 }
