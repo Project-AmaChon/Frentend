@@ -32,7 +32,7 @@ class LogInActivity : AppCompatActivity() {
             val password = findViewById<EditText>(R.id.password).text.toString()
             var isSuccess = false
             var token = ""
-
+            var memberId = 0
             Client.retrofitService.login(LoginDto(email, password)).enqueue(object : Callback<LoginResponseDto> {
                 override fun onResponse(
                     call: Call<LoginResponseDto>,
@@ -40,7 +40,9 @@ class LogInActivity : AppCompatActivity() {
                 ) {
                     isSuccess = response.body()?.isSuccess!!
                     if (isSuccess) {
+                        Client.memberId = response.body()?.result?.memberId!!
                         token = response.body()?.result?.accessToken!!
+                        memberId = response.body()?.result?.memberId!!
                     }
                 }
 
@@ -48,6 +50,8 @@ class LogInActivity : AppCompatActivity() {
                 }
 
             })
+
+
 
             Handler().postDelayed({
                 if (isSuccess) {

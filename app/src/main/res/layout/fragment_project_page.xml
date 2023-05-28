@@ -40,6 +40,7 @@
             app:layout_constraintTop_toBottomOf="@+id/techRv">
 
             <TextView
+                android:id="@+id/texttext"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="현재 참가중인 인원" />
@@ -61,6 +62,7 @@
                 android:text="신청 현황" />
 
             <Button
+                android:visibility= "gone"
                 android:id="@+id/hey"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -70,11 +72,20 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/linearLayout17"
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#cbcbcb"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout15"
-            tools:layout_editor_absoluteX="20dp" />
+            tools:layout_editor_absoluteX="20dp"
+            android:orientation="horizontal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/memberRV"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            app:layout_constraintStart_toStartOf="@+id/techRv"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout17" />
 
         <LinearLayout
             android:id="@+id/linearLayout"

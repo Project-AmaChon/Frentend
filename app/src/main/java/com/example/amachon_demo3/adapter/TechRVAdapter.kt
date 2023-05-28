@@ -7,8 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.amachon_demo3.R
 
-class TechRVAdapter (val items : MutableList<String>) :
-    RecyclerView.Adapter<TechRVAdapter.ViewHolder>() {
+class TechRVAdapter (val items : MutableList<String>) : RecyclerView.Adapter<TechRVAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TechRVAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.rvtechitem, parent, false)
 

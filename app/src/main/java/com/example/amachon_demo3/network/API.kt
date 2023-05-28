@@ -47,5 +47,15 @@ interface API {
     @GET("/project/{projectId}")
     fun getProject(@Path("projectId") projectId : Int) : Call<ProjectDetailDto>
 
-    //@GET("/project/{projectId}/recommend-teamMember")
+    @GET("/project/{projectId}/recommend-teamMember")
+    fun getReCoMember(@Path("projectId") projectId: Int) : Call<ReMembercpresponeDto>
+
+    @GET("/project/{projectId}/recruit-list")
+    fun getNowMember(@Path("projectId") projectId: Int) : Call<ReMembercpresponeDto>
+
+    @GET("project/apply/accept/{recruitId}")
+    fun projectAccept(@Path("recruitId") recruitId : Int) : Call<BaseDto>
+
+    @GET("project/apply/reject/{recruitId}")
+    fun projectReject(@Path("recruitId") recruitId: Int) : Call<BaseDto>
 }
