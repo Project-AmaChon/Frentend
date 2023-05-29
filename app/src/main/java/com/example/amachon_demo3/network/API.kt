@@ -59,6 +59,9 @@ interface API {
     @GET("project/apply/reject/{recruitId}")
     fun projectReject(@Path("recruitId") recruitId: Int) : Call<BaseDto>
 
+    @GET("/home")
+    fun getHome() : Call<CurrentProjectDto>
+
     @POST("/project/{projectId}/kick/{teamMemberId}")
     fun kickMember(@Path("projectId") projectId: Int, @Path("teamMemberId") teamMemberId : Int) : Call<BaseDto>
 }
