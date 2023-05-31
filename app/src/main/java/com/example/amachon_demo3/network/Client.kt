@@ -32,7 +32,7 @@ object Client {
 */
 
 object Client {
-    var value: String? = ""
+    var value: String? = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1lbWJlcjFAbmF2ZXIuY29tIiwiaWF0IjoxNjg1NDM1MzE4LCJleHAiOjE2OTMyMTEzMTh9.87-xvcsmo9xJPMVxsCQaJpuBVkR6fQp01tIMYNQVTSg"
 
     var retrofitService: API
     init {
@@ -54,7 +54,7 @@ object Client {
             .build()
 
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://15.164.49.32:8080/")
+            .baseUrl("http://15.165.204.209:8080/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(logger)
             .build()

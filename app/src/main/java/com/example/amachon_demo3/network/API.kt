@@ -29,7 +29,7 @@ interface API {
     fun change(@Body changeDto: changeDto) : Call<Void>
 
     @POST("/project/search")
-    fun postSearch(@Body searchDto: SearchDto) : Call<ProjectDto>
+    fun postSearch(@Body searchDto: SearchDto) : Call<ProjectSearchDto>
 
     @GET("/tech-tags")
     fun getTechTags() : Call<TagsSearchDto>

@@ -44,7 +44,11 @@ class TechTagFragment : Fragment() {
                 call: Call<TagsSearchDto>,
                 response: Response<TagsSearchDto>
             ) {
+                if (response.body()?.isSuccess!!) {
+                    Log.d("test", "200 OK")
+                }
                 Log.d("error2", response.body().toString())
+                Log.d("get", response.body().toString())
                 techtagList = response.body()?.result!!
                 val listview = binding.techListview
 
