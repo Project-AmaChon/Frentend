@@ -1,5 +1,6 @@
 package com.example.amachon_demo3.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,7 +45,7 @@ class ProjectTeamMemberRV (val items : MutableList<TeamMemberDto>, val projectle
                 cancelbtn.setOnClickListener {
                     Client.retrofitService.kickMember(projectleaderId, item.memberId).enqueue(object : Callback<BaseDto>{
                         override fun onResponse(call: Call<BaseDto>, response: Response<BaseDto>) {
-
+                            Log.d("test", projectleaderId.toString() + " " + item.memberId.toString())
                         }
 
                         override fun onFailure(call: Call<BaseDto>, t: Throwable) {

@@ -2,6 +2,7 @@ package com.example.amachon_demo3.fragments
 
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -34,11 +35,12 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
 
-        Client.retrofitService.getHome().enqueue(object : Callback<CurrentProjectDto>{
+        Client.retrofitService.getHome()?.enqueue(object : Callback<CurrentProjectDto>{
             override fun onResponse(
                 call: Call<CurrentProjectDto>,
                 response: Response<CurrentProjectDto>
             ) {
+
                 val currentListViewAdapter = binding.homeprojectlisitview
                 val adapter = CurrentListViewAdapter(response.body()!!.result)
 
@@ -46,6 +48,7 @@ class HomeFragment : Fragment() {
             }
 
             override fun onFailure(call: Call<CurrentProjectDto>, t: Throwable) {
+                Log.d("tlqkf", t.toString())
             }
 
         })
