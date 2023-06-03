@@ -10,7 +10,7 @@ import android.widget.ListView
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.example.amachon_demo3.R
-import com.example.amachon_demo3.databinding.FragmentMessageBinding
+import com.example.amachon_demo3.databinding.FragmentMessageBindingx
 
 
 class MessageFragment : Fragment() {
