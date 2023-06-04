@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.amachon_demo3.R
 import com.example.amachon_demo3.adapter.NowMemberListViewAdapter
 import com.example.amachon_demo3.adapter.ProjectTeamMemberRV
+import com.example.amachon_demo3.adapter.RecommendMemberAdapter
 import com.example.amachon_demo3.adapter.TechRVAdapter
 import com.example.amachon_demo3.data.BaseDto
 import com.example.amachon_demo3.data.ProjectDetailDto
@@ -49,7 +50,18 @@ class ProjectPageFragment : Fragment() {
                     call: Call<ReMembercpresponeDto>,
                     response: Response<ReMembercpresponeDto>
                 ) {
+                    val dialogBuilder = AlertDialog.Builder(requireContext())
 
+                    val inflater = layoutInflater
+                    val dialogView = inflater.inflate(R.layout.recommend_member_dialog, null)
+                    dialogBuilder.setView(dialogView)
+
+                    val recommendListview = dialogView.findViewById<ListView>(R.id.recommend_member_listview)
+                    val adapter = RecommendMemberAdapter(response.body()!!.result)
+
+                    recommendListview.adapter = adapter
+                    val alertDialog = dialogBuilder.create()
+                    alertDialog.show()
                 }
 
                 override fun onFailure(call: Call<ReMembercpresponeDto>, t: Throwable) {

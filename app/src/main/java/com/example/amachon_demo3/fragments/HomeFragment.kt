@@ -58,11 +58,8 @@ class HomeFragment : Fragment() {
 
             }
 
-        })
 
-        binding.testBtn.setOnClickListener {
-            it.findNavController().navigate(R.id.action_homeFragment_to_projectPageFragment)
-        }
+        })
 
         binding.projecttap.setOnClickListener {
             it.findNavController().navigate(R.id.action_homeFragment_to_projectFragment)
