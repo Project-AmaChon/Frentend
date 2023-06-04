@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import java.time.LocalDate
 
 data class ProjectDto (
-    @SerializedName("projectID") val projectID : Int,
+    @SerializedName("projectId") val projectId : Int,
     @SerializedName("title") val title : String,
     @SerializedName("recruitDeadline") val recruitDeadline : String,
     @SerializedName("recruitNumber") val recruitNumber : Int,

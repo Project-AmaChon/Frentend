@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.amachon_demo3.R
 import com.example.amachon_demo3.adapter.CurrentListViewAdapter
 import com.example.amachon_demo3.data.CurrentProjectDto
@@ -43,12 +45,17 @@ class HomeFragment : Fragment() {
 
                 val currentListViewAdapter = binding.homeprojectlisitview
                 val adapter = CurrentListViewAdapter(response.body()!!.result)
-
                 currentListViewAdapter.adapter = adapter
+
+                currentListViewAdapter.setOnItemClickListener { adapterView, view, i, l ->
+                    val projectId = response.body()!!.result[i].projectId
+                    Client.projectId = projectId
+                    findNavController().navigate(R.id.action_homeFragment_to_projectPageFragment)
+                }
             }
 
             override fun onFailure(call: Call<CurrentProjectDto>, t: Throwable) {
-                Log.d("tlqkf", t.toString())
+
             }
 
         })

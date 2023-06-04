@@ -44,7 +44,7 @@ class ProjectPageFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_project_page, container, false)
 
         binding.memberreco.setOnClickListener {
-            Client.retrofitService.getReCoMember(586).enqueue(object : Callback<ReMembercpresponeDto>{
+            Client.retrofitService.getReCoMember(Client.projectId).enqueue(object : Callback<ReMembercpresponeDto>{
                 override fun onResponse(
                     call: Call<ReMembercpresponeDto>,
                     response: Response<ReMembercpresponeDto>
@@ -60,7 +60,7 @@ class ProjectPageFragment : Fragment() {
 
         binding.renow.setOnClickListener {
             var List = mutableListOf<RecoMemberDto>()
-            Client.retrofitService.getNowMember(586).enqueue(object : Callback<ReMembercpresponeDto> {
+            Client.retrofitService.getNowMember(Client.projectId).enqueue(object : Callback<ReMembercpresponeDto> {
                 override fun onResponse(
                     call: Call<ReMembercpresponeDto>,
                     response: Response<ReMembercpresponeDto>
@@ -90,7 +90,7 @@ class ProjectPageFragment : Fragment() {
         }
 
         binding.hey.setOnClickListener {
-            Client.retrofitService.projectApply(586).enqueue(object : Callback<BaseDto> {
+            Client.retrofitService.projectApply(Client.projectId).enqueue(object : Callback<BaseDto> {
                 override fun onResponse(call: Call<BaseDto>, response: Response<BaseDto>) {
                     Toast.makeText(requireContext(), "참가 신청 완료", Toast.LENGTH_LONG).show()
                 }
@@ -102,7 +102,7 @@ class ProjectPageFragment : Fragment() {
             })
         }
 
-        Client.retrofitService.getProject(586).enqueue(object : Callback<ProjectDetailDto> {
+        Client.retrofitService.getProject(Client.projectId).enqueue(object : Callback<ProjectDetailDto> {
             override fun onResponse(
                 call: Call<ProjectDetailDto>,
                 response: Response<ProjectDetailDto>
