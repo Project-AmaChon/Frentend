@@ -31,6 +31,9 @@ interface API {
     @POST("/project/search")
     fun postSearch(@Body searchDto: SearchDto) : Call<ProjectSearchDto>
 
+    @GET("/messages/room")
+    fun getMessage() : Call<MessageListDto>
+
     @GET("/tech-tags")
     fun getTechTags() : Call<TagsSearchDto>
 

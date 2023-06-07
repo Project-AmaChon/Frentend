@@ -70,11 +70,14 @@
             android:id="@+id/action_projectFragment_to_newProjectFragment"
             app:destination="@id/newProjectFragment" />
         <action
+            android:id="@+id/action_projectFragment_to_regionTagFragment2"
+            app:destination="@id/regionTagFragment2" />
+        <action
             android:id="@+id/action_projectFragment_to_regionTagFragment"
             app:destination="@id/regionTagFragment" />
         <action
-            android:id="@+id/action_projectFragment_to_techTagFragment"
-            app:destination="@id/techTagFragment" />
+            android:id="@+id/action_projectFragment_to_techTagFragment2"
+            app:destination="@id/techTagFragment2" />
     </fragment>
     <fragment
         android:id="@+id/newProjectFragment"
@@ -133,5 +136,24 @@
         <action
             android:id="@+id/action_techTagFragment_to_tagPlusFragment"
             app:destination="@id/tagPlusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/regionTagFragment2"
+        android:name="com.example.amachon_demo3.fragments.project.RegionTagFragment2"
+        android:label="RegionTagFragment2"
+        tools:layout="@layout/fragment_region_tag2" >
+        <action
+            android:id="@+id/action_regionTagFragment2_to_projectFragment"
+            app:destination="@id/projectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/techTagFragment2"
+        android:name="com.example.amachon_demo3.fragments.project.TechTagFragment2"
+        android:label="TechTagFragment2"
+        tools:layout="@layout/fragment_tech_tag2">
+
+        <action
+            android:id="@+id/action_techTagFragment2_to_projectFragment"
+            app:destination="@id/projectFragment" />
     </fragment>
 </navigation>
