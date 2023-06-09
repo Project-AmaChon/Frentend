@@ -51,6 +51,9 @@
         <action
             android:id="@+id/action_messageFragment_to_projectFragment"
             app:destination="@id/projectFragment" />
+        <action
+            android:id="@+id/action_messageFragment_to_messageDetailFragment"
+            app:destination="@id/messageDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/projectFragment"
@@ -156,4 +159,18 @@
             android:id="@+id/action_techTagFragment2_to_projectFragment"
             app:destination="@id/projectFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/messageDetailFragment"
+        android:name="com.example.amachon_demo3.fragments.message.MessageDetailFragment"
+        android:label="fragment_message_detail"
+        tools:layout="@layout/fragment_message_detail" >
+        <action
+            android:id="@+id/action_messageDetailFragment_to_messageSendFragment"
+            app:destination="@id/messageSendFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageSendFragment"
+        android:name="com.example.amachon_demo3.fragments.message.MessageSendFragment"
+        android:label="MessageSendFragment"
+        tools:layout="@layout/fragment_message_send"/>
 </navigation>

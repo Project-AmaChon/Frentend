@@ -33,6 +33,9 @@ object Client {
 
 object Client {
     var value: String? = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1lbWJlcjFAbmF2ZXIuY29tIiwiaWF0IjoxNjg1NDM1MzE4LCJleHAiOjE2OTMyMTEzMTh9.87-xvcsmo9xJPMVxsCQaJpuBVkR6fQp01tIMYNQVTSg"
+    var memberId: Int = 0
+    var projectId: Int = 0
+    var roomId: Int = 0
 
     var retrofitService: API
     init {

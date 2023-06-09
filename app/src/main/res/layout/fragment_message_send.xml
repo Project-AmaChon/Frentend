@@ -7,20 +7,12 @@
         android:layout_height="match_parent"
         tools:context=".fragments.message.MassageFragment">
 
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:background="#F8F5F5"
-            android:layout_marginTop="60dp"
-            tools:ignore="MissingConstraints" />
-
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/nickName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="내 쪽지함"
+            android:text="메세지 보내기"
             android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
@@ -30,11 +22,38 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#cbcbcb"
-            app:layout_constraintBottom_toBottomOf="@+id/textView3" >
+            app:layout_constraintBottom_toBottomOf="@+id/nickName" >
 
         </LinearLayout>
 
+        <EditText
+            android:id="@+id/msgcontent"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/keywordbox_radius"
+            android:hint="메세지 입력"
+            android:gravity="top"
+            app:layout_constraintTop_toBottomOf="@id/nickName">
+
+        </EditText>
+
+        <Button
+            android:id="@+id/sendingBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보내기"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/Bline"
+            tools:ignore="MissingConstraints">
+        </Button>
+
         <LinearLayout
+            android:id="@+id/Bline"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:weightSum="4"

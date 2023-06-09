@@ -5,6 +5,7 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface API {
     @POST("/login")
@@ -33,6 +34,14 @@ interface API {
 
     @GET("/messages/room")
     fun getMessage() : Call<MessageListDto>
+
+    //
+    @GET("/messages/room/{roomId}")
+    fun getMessageRoom(@Path(value = "roomId", encoded = true) roomId : Int) : Call<MessageRoomDto>
+
+    @POST("/messages/room/{roomId}/send")
+    // fun sendMessageRoom(@Body sendMessageDto: SendMessageDto) : Call<MsgResDto>
+    fun sendMessageRoom(@Path(value = "roomId") roomId : Int, @Body sendMessageDto: SendMessageDto) : Call<MsgResDto>
 
     @GET("/tech-tags")
     fun getTechTags() : Call<TagsSearchDto>

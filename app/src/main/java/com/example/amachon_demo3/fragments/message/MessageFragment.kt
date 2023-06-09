@@ -51,6 +51,14 @@ class MessageFragment : Fragment() {
 
                 val adapter = MessageListAdapter(msgList)
                 listview.adapter = adapter
+
+                listview.setOnItemClickListener{ parent, view, position, id ->
+                    var roomId = response.body()!!.result[position].roomId
+                    var memberId = response.body()!!.result[position].memberId
+                    Client.roomId = roomId
+                    Client.memberId = memberId
+                    view.findNavController().navigate(R.id.action_messageFragment_to_messageDetailFragment)
+                }
             }
             override fun onFailure(call: Call<MessageListDto>, t: Throwable) {
 
