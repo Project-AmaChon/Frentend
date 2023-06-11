@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import com.example.amachon_demo3.R
 import com.example.amachon_demo3.data.MsgResDto
 import com.example.amachon_demo3.data.SendMessageDto
@@ -51,12 +52,25 @@ class MessageSendFragment : Fragment() {
                         response: Response<MsgResDto>
                     ) {
                         Toast.makeText(requireContext(), "전송 완료", Toast.LENGTH_LONG).show()
+                        it.findNavController().navigate(R.id.action_messageSendFragment_to_messageFragment)
                     }
 
                     override fun onFailure(call: Call<MsgResDto>, t: Throwable) {
                         Toast.makeText(requireContext(), "전송 실패", Toast.LENGTH_LONG).show()
                     }
                 })
+        }
+
+        binding.hometap.setOnClickListener {
+            it.findNavController().navigate(R.id.action_messageSendFragment_to_homeFragment)
+        }
+
+        binding.projecttap.setOnClickListener {
+            it.findNavController().navigate(R.id.action_messageSendFragment_to_projectFragment)
+        }
+
+        binding.mypagetap.setOnClickListener {
+            it.findNavController().navigate(R.id.action_messageSendFragment_to_myPageFragment)
         }
 
         return binding.root

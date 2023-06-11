@@ -19,32 +19,75 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:layout_editor_absoluteX="20dp" />
 
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop ="5dp"
+            android:background="#cbcbcb"
+            app:layout_constraintTop_toBottomOf="@+id/textView5"
+            android:orientation="horizontal" />
+
+
+        <TextView
+            android:id="@+id/regionListviewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시·도"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout4" />
+
         <ListView
             android:id="@+id/regionListview"
             android:layout_margin="10dp"
             android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_height="200dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
+            app:layout_constraintTop_toBottomOf="@+id/regionListviewTitle" />
+
+        <TextView
+            android:id="@+id/regionDetailListviewTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시·구·군"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/regionListview" />
 
         <ListView
             android:id="@+id/regionDetailListview"
             android:layout_width="300dp"
-            android:layout_height="200dp"
+            android:layout_height="175dp"
             android:layout_margin="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/regionListview" />
+            app:layout_constraintTop_toBottomOf="@+id/regionDetailListviewTitle" />
+
 
         <Button
             android:id="@+id/btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/buttonbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tag_buttonbox"
             android:text="check"
+            android:textColor="#095AFB"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/regionDetailListview"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
+
 
         <LinearLayout
             android:id="@+id/linearLayout"

@@ -167,10 +167,32 @@
         <action
             android:id="@+id/action_messageDetailFragment_to_messageSendFragment"
             app:destination="@id/messageSendFragment" />
+        <action
+            android:id="@+id/action_messageDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_messageDetailFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_messageDetailFragment_to_projectFragment"
+            app:destination="@id/projectFragment" />
     </fragment>
     <fragment
         android:id="@+id/messageSendFragment"
         android:name="com.example.amachon_demo3.fragments.message.MessageSendFragment"
         android:label="MessageSendFragment"
-        tools:layout="@layout/fragment_message_send"/>
+        tools:layout="@layout/fragment_message_send">
+        <action
+            android:id="@+id/action_messageSendFragment_to_projectFragment"
+            app:destination="@id/projectFragment" />
+        <action
+            android:id="@+id/action_messageSendFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_messageSendFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_messageSendFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+    </fragment>
 </navigation>

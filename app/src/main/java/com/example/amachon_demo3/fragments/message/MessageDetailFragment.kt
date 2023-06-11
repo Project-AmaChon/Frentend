@@ -45,7 +45,7 @@ class MessageDetailFragment : Fragment() {
                 response: Response<MessageRoomDto>
             ) {
                 Log.d("MSG", Client.roomId.toString())
-                Toast.makeText(requireContext(), Client.roomId.toString(), Toast.LENGTH_LONG).show()
+                // Toast.makeText(requireContext(), Client.roomId.toString(), Toast.LENGTH_LONG).show()
 
                 msgList = response.body()?.result!!
                 val listview = binding.listView
@@ -62,8 +62,20 @@ class MessageDetailFragment : Fragment() {
 
         binding.sendBtn.setOnClickListener {
             Log.d("MSG2", Client.roomId.toString())
-            Toast.makeText(requireContext(), Client.roomId.toString(), Toast.LENGTH_LONG).show()
+            // Toast.makeText(requireContext(), Client.roomId.toString(), Toast.LENGTH_LONG).show()
             it.findNavController().navigate(R.id.action_messageDetailFragment_to_messageSendFragment)
+        }
+
+        binding.hometap.setOnClickListener {
+            it.findNavController().navigate(R.id.action_messageDetailFragment_to_homeFragment)
+        }
+
+        binding.projecttap.setOnClickListener {
+            it.findNavController().navigate(R.id.action_messageDetailFragment_to_projectFragment)
+        }
+
+        binding.mypagetap.setOnClickListener {
+            it.findNavController().navigate(R.id.action_messageDetailFragment_to_myPageFragment)
         }
 
         return binding.root

@@ -13,7 +13,8 @@
             android:layout_height="match_parent"
             android:background="#F8F5F5"
             android:layout_marginTop="60dp"
-            tools:ignore="MissingConstraints" />
+            tools:ignore="MissingConstraints"
+            android:divider="@null"/>
 
         <TextView
             android:id="@+id/textView3"

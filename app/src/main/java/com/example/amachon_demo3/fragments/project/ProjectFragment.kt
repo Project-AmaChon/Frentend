@@ -100,8 +100,8 @@ class ProjectFragment : Fragment() {
 
         binding.searchBtn.setOnClickListener {
             var keyword = binding.projectkeyword.text.toString()
-            var region1 = "화성시"
-            // var region1 = binding.projectRegion.text.toString()
+            // var region1 = "화성시"
+            var region1 = binding.projectRegion.text.toString()
             var tech1 = binding.projectTag.text.toString()
             var regionTagNames = mutableListOf<String>(region1)
             var techTagNames = mutableListOf<String>(tech1)

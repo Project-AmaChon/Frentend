@@ -31,9 +31,13 @@ class ProjectListViewAdapter(val List : MutableList<ProjectDto>) : BaseAdapter()
         val mainTitle = convertView!!.findViewById<TextView>(R.id.projectMainTitle)
         mainTitle.text = List[p0].title
 
-        /*
+
         val subTitle = convertView!!.findViewById<TextView>(R.id.projectSubTitle)
-         */
+        subTitle.text = List[p0].tagNames[0]
+
+        val subTitle2 = convertView!!.findViewById<TextView>(R.id.projectSubTitle2)
+        subTitle2.text = List[p0].tagNames[1]
+
 
         return convertView!!
     }
