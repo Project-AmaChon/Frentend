@@ -198,4 +198,8 @@
             android:id="@+id/action_messageSendFragment_to_messageFragment"
             app:destination="@id/messageFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/projectPageFragment"
+        android:name="com.example.amachon_demo3.fragments.project.ProjectPageFragment"
+        android:label="ProjectPageFragment" />
 </navigation>
