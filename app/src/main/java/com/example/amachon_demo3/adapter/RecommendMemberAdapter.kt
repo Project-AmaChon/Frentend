@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.amachon_demo3.R
-import com.example.amachon_demo3.data.TagDto
+import com.example.amachon_demo3.data.RecoMemberDto
 
-class TechListViewAdapter(val List: MutableList<TagDto>) : BaseAdapter() {
+class RecommendMemberAdapter (val List : MutableList<RecoMemberDto>) : BaseAdapter(){
     override fun getCount(): Int {
         return List.size
     }
@@ -25,11 +25,11 @@ class TechListViewAdapter(val List: MutableList<TagDto>) : BaseAdapter() {
         var convertView = p1
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(p2?.context).inflate(R.layout.techtaglistview_item, p2, false)
+            convertView = LayoutInflater.from(p2?.context).inflate(R.layout.recommend_member_listview_item, p2, false)
         }
 
-        val title = convertView!!.findViewById<TextView>(R.id.text)
-        title.text = List[p0].name
+        val name = convertView!!.findViewById<TextView>(R.id.recommend_name)
+        name.text = List[p0].name
 
         return convertView!!
     }

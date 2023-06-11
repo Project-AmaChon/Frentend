@@ -6,9 +6,8 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.amachon_demo3.R
-import com.example.amachon_demo3.data.TagDto
 
-class TechListViewAdapter(val List: MutableList<TagDto>) : BaseAdapter() {
+class ProjectTechListViewAdapter(val List : MutableList<String>) : BaseAdapter(){
     override fun getCount(): Int {
         return List.size
     }
@@ -25,11 +24,12 @@ class TechListViewAdapter(val List: MutableList<TagDto>) : BaseAdapter() {
         var convertView = p1
 
         if (convertView == null) {
-            convertView = LayoutInflater.from(p2?.context).inflate(R.layout.techtaglistview_item, p2, false)
+            convertView = LayoutInflater.from(p2?.context).inflate(R.layout.techlistviewitem, p2, false)
+
         }
 
         val title = convertView!!.findViewById<TextView>(R.id.text)
-        title.text = List[p0].name
+        title.text = List[p0]
 
         return convertView!!
     }

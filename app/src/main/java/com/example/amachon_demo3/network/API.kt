@@ -51,4 +51,28 @@ interface API {
 
     @POST("/project")
     fun createProject(@Body projectCreateDto: ProjectCreateDto) : Call<RespawnDto>
+
+    @POST("/project/{projectId}/apply")
+    fun projectApply(@Path("projectId") projectId: Int) : Call<BaseDto>
+
+    @GET("/project/{projectId}")
+    fun getProject(@Path("projectId") projectId : Int) : Call<ProjectDetailDto>
+
+    @GET("/project/{projectId}/recommend-teamMember")
+    fun getReCoMember(@Path("projectId") projectId: Int) : Call<ReMembercpresponeDto>
+
+    @GET("/project/{projectId}/recruit-list")
+    fun getNowMember(@Path("projectId") projectId: Int) : Call<ReMembercpresponeDto>
+
+    @GET("project/apply/accept/{recruitId}")
+    fun projectAccept(@Path("recruitId") recruitId : Int) : Call<BaseDto>
+
+    @GET("project/apply/reject/{recruitId}")
+    fun projectReject(@Path("recruitId") recruitId: Int) : Call<BaseDto>
+
+    @GET("/home")
+    fun getHome() : Call<CurrentProjectDto>
+
+    @POST("/project/{projectId}/kick/{teamMemberId}")
+    fun kickMember(@Path("projectId") projectId: Int, @Path("teamMemberId") teamMemberId : Int) : Call<BaseDto>
 }

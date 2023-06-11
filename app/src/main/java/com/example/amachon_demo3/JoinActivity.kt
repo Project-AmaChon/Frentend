@@ -3,7 +3,6 @@ package com.example.amachon_demo3
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -23,8 +22,6 @@ class JoinActivity : AppCompatActivity() {
 
         val emailCheckBtn = findViewById<Button>(R.id.EmailAddressCertification)
         emailCheckBtn.setOnClickListener {
-            val password = findViewById<EditText>(R.id.passWord).text.toString()
-            val nickName = findViewById<EditText>(R.id.Nickname).text.toString()
             val email = findViewById<EditText>(R.id.EmailAddress).text.toString()
 
             Client.retrofitService.logUp(EmailDto(email)).enqueue(
@@ -45,6 +42,9 @@ class JoinActivity : AppCompatActivity() {
             Client.retrofitService.codeCheck(EmailCheckDto(email, emailCode)).enqueue(
                 object : Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        if (response.isSuccessful) {
+                            emailCheck = true
+                        }
                     }
 
                     override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -60,6 +60,9 @@ class JoinActivity : AppCompatActivity() {
             Client.retrofitService.nickNameCheck(NicknameDto(nickname)).enqueue(
                 object : Callback<Void> {
                     override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                        if (response.isSuccessful) {
+                            nicknameCheck = true
+                        }
                     }
 
                     override fun onFailure(call: Call<Void>, t: Throwable) {

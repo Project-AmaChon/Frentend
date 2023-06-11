@@ -27,6 +27,7 @@
         android:src="@drawable/ama"/>
 
     <EditText
+        android:id="@+id/email"
         android:paddingLeft="10dp"
         android:background="@drawable/editbox"
         android:textColorHint="#CBCBCB"
@@ -36,6 +37,7 @@
         android:hint="이메일" />
 
     <EditText
+        android:id="@+id/password"
         android:paddingLeft="10dp"
         android:background="@drawable/editbox"
         android:textColorHint="#CBCBCB"
@@ -76,5 +78,4 @@
             android:textColor="#CBCBCB"
             android:gravity="center"/>
     </LinearLayout>
-
 </LinearLayout>

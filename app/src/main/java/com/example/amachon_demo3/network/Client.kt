@@ -7,32 +7,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-/*
 object Client {
-    var retrofitService: API
-    init {
-        val interceptor = HttpLoggingInterceptor()
-        interceptor.level = HttpLoggingInterceptor.Level.BODY
-
-        val logger = OkHttpClient.Builder()
-        .addInterceptor(interceptor)
-        .readTimeout(20, TimeUnit.SECONDS)
-        .writeTimeout(20, TimeUnit.SECONDS)
-        .build()
-
-        val retrofit = Retrofit.Builder()
-            .baseUrl("http://13.125.98.158:8080/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .client(logger)
-            .build()
-
-        retrofitService = retrofit.create(API::class.java)
-    }
-}
-*/
-
-object Client {
-    var value: String? = "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VybmFtZSI6Im1lbWJlcjFAbmF2ZXIuY29tIiwiaWF0IjoxNjg1NDM1MzE4LCJleHAiOjE2OTMyMTEzMTh9.87-xvcsmo9xJPMVxsCQaJpuBVkR6fQp01tIMYNQVTSg"
+    var value: String? = ""
     var memberId: Int = 0
     var projectId: Int = 0
     var roomId: Int = 0
