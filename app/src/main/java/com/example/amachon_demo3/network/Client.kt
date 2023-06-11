@@ -11,6 +11,7 @@ object Client {
     var value: String? = ""
     var memberId: Int = 0
     var projectId: Int = 0
+    var roomId: Int = 0
 
     var retrofitService: API
     init {

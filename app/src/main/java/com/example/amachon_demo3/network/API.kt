@@ -30,7 +30,18 @@ interface API {
     fun change(@Body changeDto: changeDto) : Call<Void>
 
     @POST("/project/search")
-    fun postSearch(@Body searchDto: SearchDto) : Call<ProjectDto>
+    fun postSearch(@Body searchDto: SearchDto) : Call<ProjectSearchDto>
+
+    @GET("/messages/room")
+    fun getMessage() : Call<MessageListDto>
+
+    //
+    @GET("/messages/room/{roomId}")
+    fun getMessageRoom(@Path(value = "roomId", encoded = true) roomId : Int) : Call<MessageRoomDto>
+
+    @POST("/messages/room/{roomId}/send")
+    // fun sendMessageRoom(@Body sendMessageDto: SendMessageDto) : Call<MsgResDto>
+    fun sendMessageRoom(@Path(value = "roomId") roomId : Int, @Body sendMessageDto: SendMessageDto) : Call<MsgResDto>
 
     @GET("/tech-tags")
     fun getTechTags() : Call<TagsSearchDto>

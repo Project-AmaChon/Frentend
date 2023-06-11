@@ -54,6 +54,9 @@
         <action
             android:id="@+id/action_messageFragment_to_projectFragment"
             app:destination="@id/projectFragment" />
+        <action
+            android:id="@+id/action_messageFragment_to_messageDetailFragment"
+            app:destination="@id/messageDetailFragment" />
     </fragment>
     <fragment
         android:id="@+id/projectFragment"
@@ -72,6 +75,15 @@
         <action
             android:id="@+id/action_projectFragment_to_newProjectFragment"
             app:destination="@id/newProjectFragment" />
+        <action
+            android:id="@+id/action_projectFragment_to_regionTagFragment2"
+            app:destination="@id/regionTagFragment2" />
+        <action
+            android:id="@+id/action_projectFragment_to_regionTagFragment"
+            app:destination="@id/regionTagFragment" />
+        <action
+            android:id="@+id/action_projectFragment_to_techTagFragment2"
+            app:destination="@id/techTagFragment2" />
     </fragment>
     <fragment
         android:id="@+id/newProjectFragment"
@@ -101,7 +113,8 @@
     <fragment
         android:id="@+id/tagPlusFragment"
         android:name="com.example.amachon_demo3.fragments.project.TagPlusFragment"
-        android:label="TagPlusFragment" >
+        android:label="TagPlusFragment"
+        tools:layout="@layout/fragment_tagplus">
         <action
             android:id="@+id/action_tagPlusFragment_to_newProjectOptionFragment"
             app:destination="@id/newProjectOptionFragment" />
@@ -115,7 +128,8 @@
     <fragment
         android:id="@+id/regionTagFragment"
         android:name="com.example.amachon_demo3.fragments.project.RegionTagFragment"
-        android:label="RegionTagFragment" >
+        android:label="RegionTagFragment"
+        tools:layout="@layout/fragment_region_tag">
         <action
             android:id="@+id/action_regionTagFragment_to_tagPlusFragment"
             app:destination="@id/tagPlusFragment" />
@@ -123,13 +137,65 @@
     <fragment
         android:id="@+id/techTagFragment"
         android:name="com.example.amachon_demo3.fragments.project.TechTagFragment"
-        android:label="TechTagFragment" >
+        android:label="TechTagFragment"
+        tools:layout="@layout/fragment_tech_tag">
         <action
             android:id="@+id/action_techTagFragment_to_tagPlusFragment"
             app:destination="@id/tagPlusFragment" />
     </fragment>
     <fragment
-        android:id="@+id/projectPageFragment"
-        android:name="com.example.amachon_demo3.fragments.project.ProjectPageFragment"
-        android:label="ProjectPageFragment" />
+        android:id="@+id/regionTagFragment2"
+        android:name="com.example.amachon_demo3.fragments.project.RegionTagFragment2"
+        android:label="RegionTagFragment2"
+        tools:layout="@layout/fragment_region_tag2" >
+        <action
+            android:id="@+id/action_regionTagFragment2_to_projectFragment"
+            app:destination="@id/projectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/techTagFragment2"
+        android:name="com.example.amachon_demo3.fragments.project.TechTagFragment2"
+        android:label="TechTagFragment2"
+        tools:layout="@layout/fragment_tech_tag2">
+
+        <action
+            android:id="@+id/action_techTagFragment2_to_projectFragment"
+            app:destination="@id/projectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageDetailFragment"
+        android:name="com.example.amachon_demo3.fragments.message.MessageDetailFragment"
+        android:label="fragment_message_detail"
+        tools:layout="@layout/fragment_message_detail" >
+        <action
+            android:id="@+id/action_messageDetailFragment_to_messageSendFragment"
+            app:destination="@id/messageSendFragment" />
+        <action
+            android:id="@+id/action_messageDetailFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_messageDetailFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_messageDetailFragment_to_projectFragment"
+            app:destination="@id/projectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageSendFragment"
+        android:name="com.example.amachon_demo3.fragments.message.MessageSendFragment"
+        android:label="MessageSendFragment"
+        tools:layout="@layout/fragment_message_send">
+        <action
+            android:id="@+id/action_messageSendFragment_to_projectFragment"
+            app:destination="@id/projectFragment" />
+        <action
+            android:id="@+id/action_messageSendFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_messageSendFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_messageSendFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+    </fragment>
 </navigation>
