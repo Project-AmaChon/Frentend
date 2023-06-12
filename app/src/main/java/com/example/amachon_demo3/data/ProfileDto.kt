@@ -7,5 +7,8 @@ class ProfileDto (
         @SerializedName("description") val description : String,
         @SerializedName("githubUrl") val githubUrl : String,
         @SerializedName("introduction") val introduction : String,
-        @SerializedName("profileImageUrl") val profileImageUrl : String
+        @SerializedName("nickname") val nickname : String,
+        @SerializedName("profileImageUrl") val profileImageUrl : String,
+        @SerializedName("regionTag") val regionTag : String,
+        @SerializedName("techTags") val techTags : MutableList<String>
         )

@@ -46,6 +46,11 @@ class MyPageFragment : Fragment() {
                 binding.btnCall4.text = response.body()?.result?.githubUrl.toString()
                 binding.editTextTextMultiLine.text = response.body()?.result?.introduction.toString()
 
+                binding.textView5.text = response.body()?.result?.nickname.toString()
+                binding.textView11.text = response.body()?.result?.regionTag.toString()
+                binding.textView15.text = response.body()?.result!!.techTags[0]
+                binding.textView16.text = response.body()?.result!!.techTags[1] // Null에 대한 예외처리 해야함
+
             }
 
             override fun onFailure(call: Call<ProfileGetDto>, t: Throwable) {
