@@ -84,6 +84,9 @@
         <action
             android:id="@+id/action_projectFragment_to_techTagFragment2"
             app:destination="@id/techTagFragment2" />
+        <action
+            android:id="@+id/action_projectFragment_to_projectPageFragment"
+            app:destination="@id/projectPageFragment" />
     </fragment>
     <fragment
         android:id="@+id/newProjectFragment"

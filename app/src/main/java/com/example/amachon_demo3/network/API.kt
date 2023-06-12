@@ -43,6 +43,9 @@ interface API {
     // fun sendMessageRoom(@Body sendMessageDto: SendMessageDto) : Call<MsgResDto>
     fun sendMessageRoom(@Path(value = "roomId") roomId : Int, @Body sendMessageDto: SendMessageDto) : Call<MsgResDto>
 
+    @GET("/my-page")
+    fun getProfile() : Call<ProfileGetDto>
+
     @GET("/tech-tags")
     fun getTechTags() : Call<TagsSearchDto>
 

@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.amachon_demo3.R
 import com.example.amachon_demo3.adapter.ProjectListViewAdapter
 import com.example.amachon_demo3.data.*
@@ -127,6 +128,12 @@ class ProjectFragment : Fragment() {
                         val adapter = ProjectListViewAdapter(projectList)
 
                         listview.adapter = adapter
+
+                        listview.setOnItemClickListener { adapterView, view, i, l ->
+                            val projectId = response.body()!!.result[i].projectId
+                            Client.projectId = projectId
+                            findNavController().navigate(R.id.action_projectFragment_to_projectPageFragment)
+                        }
                     }
 
                     override fun onFailure(call: Call<ProjectSearchDto>, t: Throwable) {
