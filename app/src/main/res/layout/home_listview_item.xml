@@ -3,23 +3,66 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="wrap_content">
 
     <TextView
         android:id="@+id/title"
-        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:text="text"
+        android:textSize="20sp"
         android:textStyle="bold"
-        android:text="title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_weight="1">
+    </TextView>
 
-    <TextView
-        android:id="@+id/deadline"
-        android:layout_marginLeft="10dp"
-        android:textSize="8dp"
-        android:textStyle="bold"
-        android:text="DeadLine"
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="tag"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:background="@drawable/rounded_background"
+            android:layout_weight="1">
+        </TextView>
+
+        <TextView
+            android:id="@+id/deadline"
+            android:background="@drawable/rounded_background"
+            android:layout_margin="10dp"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:text="DeadLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:id="@+id/person"
+            android:background="@drawable/rounded_background"
+            android:layout_margin="10dp"
+            android:textSize="10dp"
+            android:textStyle="bold"
+            android:padding="5dp"
+            android:text="1/4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+
 
 </LinearLayout>

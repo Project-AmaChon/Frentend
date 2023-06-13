@@ -14,14 +14,15 @@ import com.example.amachon_demo3.adapter.CurrentListViewAdapter
 import com.example.amachon_demo3.data.CurrentProjectDto
 import com.example.amachon_demo3.data.ProfileGetDto
 import com.example.amachon_demo3.databinding.FragmentMyPageBinding
+import com.example.amachon_demo3.databinding.FragmentUserPageBinding
 import com.example.amachon_demo3.network.Client
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MyPageFragment : Fragment() {
+class UserPageFragment : Fragment() {
 
-    private lateinit var binding : FragmentMyPageBinding
+    private lateinit var binding : FragmentUserPageBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,15 +34,15 @@ class MyPageFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_my_page, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_page, container, false)
 
-        Client.retrofitService.getProfile()?.enqueue(object : Callback<ProfileGetDto> {
+        Client.retrofitService.getUserProfile(Client.watchmemberId)?.enqueue(object : Callback<ProfileGetDto> {
             override fun onResponse(
                 call: Call<ProfileGetDto>,
                 response: Response<ProfileGetDto>
             ) {
 
-                Glide.with(this@MyPageFragment).load(response.body()?.result?.profileImageUrl.toString()).into(binding.imageView)
+                Glide.with(this@UserPageFragment).load(response.body()?.result?.profileImageUrl.toString()).into(binding.imageView)
                 binding.btnCall.text = response.body()?.result?.blogUrl.toString()
                 binding.btnCall4.text = response.body()?.result?.githubUrl.toString()
                 binding.introduce.text = response.body()?.result?.introduction.toString()
@@ -60,16 +61,24 @@ class MyPageFragment : Fragment() {
 
         })
 
+        binding.sendButton.setOnClickListener {
+            it.findNavController().navigate(R.id.action_userPageFragment_to_messageSendIdFragment)
+        }
+
         binding.hometap.setOnClickListener {
-            it.findNavController().navigate(R.id.action_myPageFragment_to_homeFragment)
+            it.findNavController().navigate(R.id.action_userPageFragment_to_homeFragment)
         }
 
         binding.massagetap.setOnClickListener {
-            it.findNavController().navigate(R.id.action_myPageFragment_to_messageFragment)
+            it.findNavController().navigate(R.id.action_userPageFragment_to_messageFragment)
         }
 
         binding.projecttap.setOnClickListener {
-            it.findNavController().navigate(R.id.action_myPageFragment_to_projectFragment)
+            it.findNavController().navigate(R.id.action_userPageFragment_to_projectFragment)
+        }
+
+        binding.mypagetap.setOnClickListener {
+            it.findNavController().navigate(R.id.action_userPageFragment_to_myPageFragment)
         }
 
         return binding.root

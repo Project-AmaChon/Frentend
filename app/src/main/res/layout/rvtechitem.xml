@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="50dp"
-    android:layout_height="50dp">
+    android:layout_width="wrap_content"
+    android:layout_height="30dp">
 
     <TextView
-        android:background="#cbcbcb"
-        android:textColor="#ffffff"
+        android:background="@drawable/gray_buttonbox"
+        android:textColor="@color/black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="rv"
+        android:textStyle="bold"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center"
         android:layout_margin="3dp"
-        android:id="@+id/techrv"/>
+        android:id="@+id/techrv"
+        android:layout_gravity="center"/>
 
 </LinearLayout>

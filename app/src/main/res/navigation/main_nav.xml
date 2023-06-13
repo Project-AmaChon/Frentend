@@ -204,5 +204,46 @@
     <fragment
         android:id="@+id/projectPageFragment"
         android:name="com.example.amachon_demo3.fragments.project.ProjectPageFragment"
-        android:label="ProjectPageFragment" />
+        android:label="ProjectPageFragment" >
+        <action
+            android:id="@+id/action_projectPageFragment_to_userPageFragment"
+            app:destination="@id/userPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userPageFragment"
+        android:name="com.example.amachon_demo3.fragments.mypage.UserPageFragment"
+        android:label="UserPageFragment" >
+        <action
+            android:id="@+id/action_userPageFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_projectFragment"
+            app:destination="@id/projectFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_messageSendIdFragment"
+            app:destination="@id/messageSendIdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageSendIdFragment"
+        android:name="com.example.amachon_demo3.fragments.message.MessageSendIdFragment"
+        android:label="MessageSendIdFragment" >
+        <action
+            android:id="@+id/action_messageSendIdFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_messageSendIdFragment_to_projectFragment"
+            app:destination="@id/projectFragment" />
+        <action
+            android:id="@+id/action_messageSendIdFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+        <action
+            android:id="@+id/action_messageSendIdFragment_to_myPageFragment"
+            app:destination="@id/myPageFragment" />
+    </fragment>
 </navigation>

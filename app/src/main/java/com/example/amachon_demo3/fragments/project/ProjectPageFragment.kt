@@ -1,6 +1,7 @@
 package com.example.amachon_demo3.fragments.project
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +10,7 @@ import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.amachon_demo3.R
 import com.example.amachon_demo3.adapter.NowMemberListViewAdapter
@@ -33,7 +35,6 @@ class ProjectPageFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
 
@@ -138,6 +139,13 @@ class ProjectPageFragment : Fragment() {
                 MemberRv.adapter = memberrvAdapter
                 MemberRv.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
+                memberrvAdapter.setOnItemclickListner(object: ProjectTeamMemberRV.OnItemClickListner{
+                    override fun onItemClick(view: View, position: Int) {
+                        //intent.putExtra("clickedReport_username",userName)
+                        Client.watchmemberId = response.body()!!.result!!.teamMembers[position].memberId
+                        findNavController().navigate(R.id.action_projectPageFragment_to_userPageFragment)
+                    }
+                })
 
                 binding.texttext.text = "현재 참가 중인 인원 (" + response.body()?.result?.teamMembers?.size.toString() + "/" + response.body()?.result?.recruitNumber.toString() + ")"
 
@@ -158,6 +166,8 @@ class ProjectPageFragment : Fragment() {
                         binding.hey.visibility = View.VISIBLE
                     }
                 }
+
+                //
             }
 
             override fun onFailure(call: Call<ProjectDetailDto>, t: Throwable) {

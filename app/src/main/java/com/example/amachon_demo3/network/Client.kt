@@ -13,6 +13,8 @@ object Client {
     var projectId: Int = 0
     var roomId: Int = 0
 
+    var watchmemberId: Int = 0
+
     var retrofitService: API
     init {
         val interceptor = HttpLoggingInterceptor()

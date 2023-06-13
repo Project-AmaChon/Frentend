@@ -35,6 +35,7 @@
             android:layout_marginRight="10dp"
             android:background="@drawable/keywordbox_radius"
             android:hint="메세지 입력"
+            android:padding="10dp"
             android:gravity="top"
             app:layout_constraintTop_toBottomOf="@id/nickName">
 

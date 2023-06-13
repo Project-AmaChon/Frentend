@@ -32,8 +32,13 @@ class CurrentListViewAdapter (val List : MutableList<ProjectDto>) : BaseAdapter(
         val title = convertView!!.findViewById<TextView>(R.id.title)
         val deadLine = convertView!!.findViewById<TextView>(R.id.deadline)
 
+        val tag1 = convertView!!.findViewById<TextView>(R.id.tag1)
+        val per = convertView!!.findViewById<TextView>(R.id.person)
+
         title.text = List[p0].title
-        deadLine.text = List[p0].recruitDeadline.toString()
+        deadLine.text = "마감일: " + List[p0].recruitDeadline.toString()
+        tag1.text = List[p0].tagNames[0].toString()
+        per.text = "모집인원: " + List[p0].currentNumber.toString() + "/" + List[p0].recruitNumber.toString()
 
         return convertView!!
     }

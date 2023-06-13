@@ -44,7 +44,8 @@
         android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="비밀번호" />
+        android:hint="비밀번호"
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/loginBtn"
